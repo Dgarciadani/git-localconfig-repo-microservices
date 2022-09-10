@@ -1,0 +1,7 @@
+message: "Hello from config server"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

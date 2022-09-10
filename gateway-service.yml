@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: dentistRoute
+          uri: lb://dentist-service
+          predicates:
+            - Path=/dentist/**
+        - id: patientRoute
+          uri: lb://patient-service
+          predicates:
+            - Path=/patient/**
+        - id: addressRoute
+          uri: lb://address-service
+          predicates:
+            - Path=/address/**
+        - id: get
+          uri: http://httpbin.org:80
+          predicates:
+            - Method=GET
+            - Path=/get
